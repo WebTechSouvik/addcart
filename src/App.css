@@ -1,0 +1,101 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+.navbar{
+	position: sticky;
+	top: 0px;
+	width: 100vw;
+	height: 50px;
+	background-color: yellow;
+	z-index: 1;
+}
+.nav-con{
+	width: 60%;
+	margin: auto;
+	display: flex;
+	gap: 50%;
+	padding: 10px;
+}
+.show-warn{
+	display: flex;
+}
+.warning{
+	background-color: red;
+	font-weight: bold;
+	margin-top: 5px;
+}
+.card-num{
+	padding: 3px;
+	background-color: red;
+	border-radius: 10px;
+}
+
+.card{
+	position: relative;
+	margin: 20px;
+	width: 16vw;
+    padding: 25px;
+    /* box-shadow: 10px 10px 5px #aaaaaa, 5px 5px 5px #aaaaaa; */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+.card-img{
+	height: 227px;
+}
+img{
+	height: 100%;
+	width: 100%;
+}
+.btn{
+	position: absolute;
+	bottom: 9px;
+	right: 9px;
+	    padding: 0px;
+    width: 71px;
+    height: 23px;
+}
+p{
+	font-size: 10px;
+}
+section{
+	z-index: 0;
+	width: 80%;
+    margin: auto;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+}
+.container{
+	position: relative;
+	width: 50vw;
+	
+	border: 2px solid black;
+	margin: auto;
+	display:flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}
+.Addcart-img{
+	height: 113px;
+	width: 108px;
+	
+	padding: 10px;
+}
+.addcart-info{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	position: absolute;
+    left: 124px;
+    top: 40px;
+    max-width: 50%;
+}
+.addcart-btn{
+	position: absolute;
+    right: 0px;
+    top: 40px;
+}
