@@ -1,23 +1,34 @@
 import React from "react";
+import Contentwrapper from "./contentwrapper/Contentwrapper.jsx";
 
-const Navbar = ({ cardnum, warning, showing, cart }) => {
+const Navbar = ({ warning, showing, cart }) => {
+	const hover = true;
 	return (
 		<>
 			<div className="navbar">
-				<div className="nav-con">
-					<span>doxp</span>
-					<div className="show-warn">
-						<i class="fa-solid fa-cart-plus" onClick={showing}></i>
-						<div>
-							<span className="card-num">{cart.length}</span>
-							{warning && (
-								<div className="warning">
-									item is presnt in the cart
-								</div>
-							)}
+				<Contentwrapper>
+					<div className="nav-con">
+						<h1>Add Cart</h1>
+						<div className="show-warn">
+							<i
+								class="fa-solid fa-cart-plus"
+								onClick={showing}
+							></i>
 						</div>
 					</div>
-				</div>
+
+					{cart.length > 0 ? (
+						<span className="card-num">{cart.length}</span>
+					) : (
+						""
+					)}
+
+					{warning && (
+						<div className="warning">
+							item is presnt in the cart
+						</div>
+					)}
+				</Contentwrapper>
 			</div>
 		</>
 	);

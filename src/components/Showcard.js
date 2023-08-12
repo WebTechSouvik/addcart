@@ -9,14 +9,18 @@ const Showcard = ({ item, addcart }) => {
 				<div className="card-img">
 					<img src={img} />
 				</div>
-				<div>
-					<p>{title}</p>
-					<p>{author}</p>
-					<p>price- {price}</p>
+				<div className="card-info">
+					<span>{title}</span>
+					<div className="author">
+						<span>by </span>
+						<span>{author}</span>
+					</div>
+					<span>Price-</span>
+					<span>{price}</span>
 				</div>
 
 				<button className="btn" onClick={() => addcart(item)}>
-					add cart
+					Add to cart
 				</button>
 			</div>
 		</>

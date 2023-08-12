@@ -6,13 +6,16 @@ import Navbar from "./components/Navbar";
 import Showcard from "./components/Showcard";
 import Addcard from "./components/Addcard";
 import list from "./list.js";
+import Contentwrapper from "./components/contentwrapper/Contentwrapper.jsx";
 
 function App() {
   const [ans, setans] = useState(0);
-  const [cardnum, setcardnum] = useState(0);
   const [warning, setwarning] = useState(false);
   const [show, setShow] = useState(true);
   const [cart, setcart] = useState([]);
+
+
+// add item in the cart
 
   const addcart = (item) => {
     let ispresent = false;
@@ -31,14 +34,15 @@ function App() {
     if (!ispresent) {
       console.log("add");
       setcart([...cart, item]);
-
-      setcardnum(cardnum + 1);
     }
   };
 
   const showing = () => {
     setShow(!show);
   };
+
+
+// delete item from the card
   const dltcart = (item) => {
     setcart(
       cart.filter((cur) => {
@@ -47,6 +51,8 @@ function App() {
     );
   };
 
+
+// quantity calculation
   const addamount = (item, d) => {
     if ((item.amount > 1 && d == -1) || (item.amount > 0 && d == 1)) {
       const newcart = cart.map((cur) => {
@@ -58,6 +64,8 @@ function App() {
       setcart(newcart);
     }
   };
+
+// total result calculation
   useEffect(() => {
     let answ = 0;
     cart.map((cur) => {
@@ -69,26 +77,31 @@ function App() {
 
   return (
     <>
-      <Navbar
-        cardnum={cardnum}
-        warning={warning}
-        showing={showing}
-        cart={cart}
-      />
+      <Navbar warning={warning} showing={showing} cart={cart} />
       {show ? (
-        <section>
-          {list.map((item) => {
-            return <Showcard key={item.id} item={item} addcart={addcart} />;
+        <Contentwrapper>
+          <section>
+            {list.map((item) => {
+              return <Showcard key={item.id} item={item} addcart={addcart} />;
+            })}
+          </section>
+        </Contentwrapper>)
+       : (
+        <div className="Container">
+          {cart.length > 0 ? <h1>Shopping cart</h1> : <h1>Nothing to Show</h1>}
+          {cart.map((cur) => {
+            return (
+              <Addcard cart={cur} dltcart={dltcart} addamount={addamount} />
+            );
           })}
-        </section>
-      ) : (
-        cart.map((cur) => {
-          return <Addcard cart={cur} dltcart={dltcart} addamount={addamount} />;
-        })
+          <div className="total">
+            <div className="price">
+              <h2>Total Price</h2>
+              <h3>{ans}</h3>
+            </div>
+          </div>
+        </div>
       )}
-      <div style={{ position: "absolute", right: "345px" }}>
-        total price - {ans}
-      </div>
     </>
   );
 }
