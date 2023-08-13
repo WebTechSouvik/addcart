@@ -1,11 +1,18 @@
 import React from "react";
 import list from "../list.js";
+import { motion } from "framer-motion";
 
 const Showcard = ({ item, addcart }) => {
 	const { id, title, author, price, img } = item;
 	return (
 		<>
-			<div className="card">
+			<motion.div
+				initial={{ scale: 0, opacity: 0 }}
+				whileInView={{ scale: 1, opacity: 1 }}
+				viewport={{ once: true }}
+				transition={{ duration: 0.5 }}
+				className="card"
+			>
 				<div className="card-img">
 					<img src={img} />
 				</div>
@@ -22,7 +29,7 @@ const Showcard = ({ item, addcart }) => {
 				<button className="btn" onClick={() => addcart(item)}>
 					Add to cart
 				</button>
-			</div>
+			</motion.div>
 		</>
 	);
 };

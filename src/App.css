@@ -133,6 +133,7 @@ img {
 	margin: 0px auto;
 	left: 50%;
 	transform: translateX(-50%);
+	cursor: pointer;
 }
 
 section {
@@ -199,18 +200,34 @@ section {
 	padding-right: 20px;
 	font-size: 15px;
 	color: red;
+	cursor: pointer;
 }
 .total {
 	display: flex;
 
 	margin-top: 20px;
 	border-top: 1px solid grey;
-	justify-content: flex-end;
+	justify-content: space-between;
+	align-items: center;
 }
 .total-info {
 	display: flex;
 	gap: 15px;
 }
+.total button {
+	padding: 5px 5px;
+	background: linear-gradient(
+		90deg,
+		rgba(255, 99, 71, 1) 20%,
+		rgba(0, 0, 0, 1) 93%
+	);
+	border: none;
+	outline: none;
+	border-radius: 10px;
+	color: white;
+	cursor: pointer;
+}
+
 .price {
 	display: flex;
 	flex-direction: column;

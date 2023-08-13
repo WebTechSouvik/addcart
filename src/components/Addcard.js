@@ -1,10 +1,14 @@
 import React from "react";
-
+import { motion, AnimatePresence } from "framer-motion";
 const Addcart = ({ cart, dltcart, addamount }) => {
 	const { id, title, author, price, img, amount } = cart;
 	return (
 		<>
-			<div className="cart">
+			<motion.div
+				exit={{ opacity: 0 }}
+				transition={{ duration: 0.3 }}
+				className="cart"
+			>
 				<div className="Addcart-info">
 					<div className="Addcart-img">
 						<img src={img} />
@@ -12,20 +16,20 @@ const Addcart = ({ cart, dltcart, addamount }) => {
 					<h4>{title}</h4>
 				</div>
 				<div className="addcart-btn">
-				<div className="quantity-btn">
-					<button
-						style={{ width: "50px" }}
-						onClick={() => addamount(cart, +1)}
-					>
-						+
-					</button>
-					<h4>{amount}</h4>
-					<button
-						style={{ width: "50px" }}
-						onClick={() => addamount(cart, -1)}
-					>
-						-
-					</button>
+					<div className="quantity-btn">
+						<button
+							style={{ width: "50px" }}
+							onClick={() => addamount(cart, +1)}
+						>
+							+
+						</button>
+						<h4>{amount}</h4>
+						<button
+							style={{ width: "50px" }}
+							onClick={() => addamount(cart, -1)}
+						>
+							-
+						</button>
 					</div>
 
 					<div className="Addcart-price">
@@ -36,7 +40,7 @@ const Addcart = ({ cart, dltcart, addamount }) => {
 						<i class="fa-solid fa-trash-can"></i>
 					</div>
 				</div>
-			</div>
+			</motion.div>
 		</>
 	);
 };
